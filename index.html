@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>러시아 문학 추천기 / RE-RECOMMENDER</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Use Outfit/Roboto alternative styles for constructivism geometric vibe -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Constructivism Background Graphic Accents -->
+  <div class="diagonal-stripe"></div>
+  <div class="constructivism-grid-lines"></div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-logo">
+        <span class="logo-red">СССР</span>
+        <span class="logo-text">RUSSIAN LITERATURE</span>
+      </div>
+      <div class="header-sub">RECOMMENDER SYSTEM v1.0</div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="app-main">
+      
+      <!-- STEP 0: INTRO -->
+      <section id="step-intro" class="step-container active">
+        <div class="intro-visual">
+          <div class="construct-box">
+            <h1 class="giant-title italic-bold">RECOMMEND /<br>РЕКОМЕНДАЦИЯ</h1>
+          </div>
+        </div>
+        <div class="intro-description">
+          <p class="desc-kr">
+            당신의 독서 취향을 4단계의 질문을 통해 고도로 분석하여, 
+            당신의 영혼에 가장 깊은 울림을 줄 <strong>러시아 소설 Top 3</strong>를 선별합니다.
+          </p>
+          <p class="desc-ru">Найдите книгу, которая затронет вашу душу.</p>
+          <button id="start-btn" class="construct-btn main-btn text-bold">START / НАЧАТЬ</button>
+        </div>
+      </section>
+
+      <!-- STEP 1: GENRE -->
+      <section id="step-genre" class="step-container">
+        <div class="step-header">
+          <span class="step-num-bg">01</span>
+          <h2 class="step-title">어떤 이야기의 주제를 선호하십니까?<br><span class="ru-subtitle">선호 장르 / ТЕМА</span></h2>
+        </div>
+        <div class="options-grid" data-step="1">
+          <button class="option-btn" data-type="genre" data-value="genre-love">
+            <span class="opt-kr">사랑 / 낭만</span>
+            <span class="opt-ru">ЛЮБОВЬ</span>
+          </button>
+          <button class="option-btn" data-type="genre" data-value="genre-politics">
+            <span class="opt-kr">정치 / 사회 혁명</span>
+            <span class="opt-ru">ПОЛИТИКА</span>
+          </button>
+          <button class="option-btn" data-type="genre" data-value="genre-history">
+            <span class="opt-kr">전쟁 / 역사 투쟁</span>
+            <span class="opt-ru">ВОЙНА</span>
+          </button>
+          <button class="option-btn" data-type="genre" data-value="genre-psychology">
+            <span class="opt-kr">추리 / 인간 심리</span>
+            <span class="opt-ru">ПСИХОЛОГИЯ</span>
+          </button>
+          <button class="option-btn" data-type="genre" data-value="genre-philosophy">
+            <span class="opt-kr">철학 / 종교 / 존재</span>
+            <span class="opt-ru">ФИЛОСОФИЯ</span>
+          </button>
+          <button class="option-btn" data-type="genre" data-value="genre-humor">
+            <span class="opt-kr">해학 / 풍자 / 부조리</span>
+            <span class="opt-ru">ЮМОР</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- STEP 2: AUTHOR -->
+      <section id="step-author" class="step-container">
+        <div class="step-header">
+          <span class="step-num-bg">02</span>
+          <h2 class="step-title">평소 좋아하는 작가는 누구입니까?<br><span class="ru-subtitle">선호 작가 스타일 / ПИСАТЕЛЬ</span></h2>
+        </div>
+        <div class="options-grid author-grid" data-step="2">
+          <button class="option-btn" data-type="author" data-value="author-haruki">
+            <span class="opt-kr">무라카미 하루키</span>
+            <span class="opt-ru">М. ХАРУКИ</span>
+          </button>
+          <button class="option-btn" data-type="author" data-value="author-shakespeare">
+            <span class="opt-kr">윌리엄 셰익스피어</span>
+            <span class="opt-ru">У. ШЕКСПИР</span>
+          </button>
+          <button class="option-btn" data-type="author" data-value="author-tolstoy">
+            <span class="opt-kr">레프 톨스토이</span>
+            <span class="opt-ru">Л. ТОЛСТОЙ</span>
+          </button>
+          <button class="option-btn" data-type="author" data-value="author-dostoevsky">
+            <span class="opt-kr">표도르 도스토옙스키</span>
+            <span class="opt-ru">Ф. ДОСТОЕВСКИЙ</span>
+          </button>
+          <button class="option-btn" data-type="author" data-value="author-han">
+            <span class="opt-kr">한강</span>
+            <span class="opt-ru">ХАН ГАН</span>
+          </button>
+          <button class="option-btn" data-type="author" data-value="author-camus">
+            <span class="opt-kr">알베르 카뮈</span>
+            <span class="opt-ru">А. КАМЮ</span>
+          </button>
+          <button class="option-btn" data-type="author" data-value="author-marquez">
+            <span class="opt-kr">가브리엘 마르케스</span>
+            <span class="opt-ru">Г. МАРКЕС</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- STEP 3: FORMAT -->
+      <section id="step-format" class="step-container">
+        <div class="step-header">
+          <span class="step-num-bg">03</span>
+          <h2 class="step-title">어떤 형식의 글을 가장 선호하십니까?<br><span class="ru-subtitle">소설 형식 / ФОРМАТ</span></h2>
+        </div>
+        <div class="options-grid" data-step="3">
+          <button class="option-btn" data-type="format" data-value="format-novel">
+            <span class="opt-kr">장편 소설</span>
+            <span class="opt-ru">РОМАН</span>
+          </button>
+          <button class="option-btn" data-type="format" data-value="format-short">
+            <span class="opt-kr">단편 소설</span>
+            <span class="opt-ru">РАССКАЗ</span>
+          </button>
+          <button class="option-btn" data-type="format" data-value="format-poetry-novel">
+            <span class="opt-kr">운문 소설</span>
+            <span class="opt-ru">РОМАН В СТИХАХ</span>
+          </button>
+          <button class="option-btn" data-type="format" data-value="format-pure">
+            <span class="opt-kr">순수 리얼리즘</span>
+            <span class="opt-ru">РЕАЛИЗМ</span>
+          </button>
+          <button class="option-btn" data-type="format" data-value="format-essay">
+            <span class="opt-kr">수필 / 기록</span>
+            <span class="opt-ru">ЭССЕ / ОЧЕРК</span>
+          </button>
+          <button class="option-btn" data-type="format" data-value="format-poem">
+            <span class="opt-kr">시 / 서정시</span>
+            <span class="opt-ru">ПОЭЗИЯ</span>
+          </button>
+          <button class="option-btn" data-type="format" data-value="format-play">
+            <span class="opt-kr">희곡 / 대본</span>
+            <span class="opt-ru">ДРАМА</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- STEP 4: ERA -->
+      <section id="step-era" class="step-container">
+        <div class="step-header">
+          <span class="step-num-bg">04</span>
+          <h2 class="step-title">선호하거나 끌리는 역사적 시대는 언제입니까?<br><span class="ru-subtitle">문학 시대 / ЭПОХА</span></h2>
+        </div>
+        <div class="options-grid" data-step="4">
+          <button class="option-btn" data-type="era" data-value="era-tsar">
+            <span class="opt-kr">차르 러시아 (19세기 황금기)</span>
+            <span class="opt-ru">ЦАРСКАЯ ЭПОХА</span>
+          </button>
+          <button class="option-btn" data-type="era" data-value="era-soviet">
+            <span class="opt-kr">소련 시대 (20세기 격동기)</span>
+            <span class="opt-ru">СОВЕТСКАЯ ЭПОХА</span>
+          </button>
+          <button class="option-btn" data-type="era" data-value="era-modern">
+            <span class="opt-kr">근현대 (포스트 소비에트)</span>
+            <span class="opt-ru">СОВРЕМЕННОСТЬ</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- STEP 5: RESULT -->
+      <section id="step-result" class="step-container">
+        <div class="result-header">
+          <h2 class="result-main-title italic-bold">RECOMMENDED TOP 3<br>РЕКОМЕНДОВАННЫЕ КНИГИ</h2>
+          <p class="result-subtitle">당신의 성향 분석 결과, 가장 높은 가중치를 획득한 러시아 도서 목록입니다.</p>
+        </div>
+        
+        <div id="recommendation-cards" class="cards-wrapper">
+          <!-- Dynamically populated by renderer.js -->
+        </div>
+
+        <div class="result-footer">
+          <button id="restart-btn" class="construct-btn restart-btn text-bold">RESTART / НАЧАТЬ ЗАНОВО</button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Progress Tracker -->
+    <div id="step-tracker" class="progress-bar-container" style="display: none;">
+      <div class="progress-info">
+        <span class="text-bold">PROGRESS</span>
+        <span>STEP <span id="current-step-num">1</span> / 4</span>
+      </div>
+      <div class="bar-outer">
+        <div id="tracker-fill" class="bar-inner"></div>
+      </div>
+    </div>
+
+    <!-- Navigation Controls (Next / Prev) -->
+    <div id="nav-controls" class="navigation-controls" style="display: none;">
+      <button id="prev-btn" class="nav-control-btn prev-btn text-bold">PREV / НАЗАД</button>
+      <button id="next-btn" class="nav-control-btn next-btn text-bold" disabled>NEXT / ВПЕРЕД</button>
+    </div>
+
+    <!-- Footer Decoration -->
+    <footer class="app-footer">
+      <span>DEPARTMENT OF RUSSIAN LANGUAGE & LITERATURE PROUDLY OFFERS</span>
+      <span>СДЕЛАНО В СССР / DESIGNED BY ANTIGRAVITY</span>
+    </footer>
+  </div>
+
+  <!-- BOOK DETAIL MODAL -->
+  <div id="book-modal" class="modal-overlay">
+    <div class="modal-content constructivism-border">
+      <button id="modal-close" class="modal-close-btn">&times;</button>
+      <div class="modal-body">
+        <div class="modal-left-bar"></div>
+        <div class="modal-main-content">
+          <div class="modal-title-area">
+            <h2 id="modal-title-kr" class="modal-title-kr text-bold">책 제목</h2>
+            <h4 id="modal-title-ru" class="modal-title-ru italic-bold">Original Title</h4>
+          </div>
+          
+          <div class="modal-meta-grid">
+            <div class="meta-item"><span class="meta-label">저자</span> <span id="modal-author" class="meta-value text-bold">작가</span></div>
+            <div class="meta-item"><span class="meta-label">출판 연도</span> <span id="modal-year" class="meta-value">연도</span></div>
+            <div class="meta-item"><span class="meta-label">시대</span> <span id="modal-era" class="meta-value text-bold">시대</span></div>
+            <div class="meta-item"><span class="meta-label">형식</span> <span id="modal-format" class="meta-value">형식</span></div>
+            <div class="meta-item full-width"><span class="meta-label">장르 분류</span> <span id="modal-genres" class="meta-value">장르</span></div>
+          </div>
+
+          <div class="modal-divider"></div>
+
+          <div class="modal-text-section">
+            <h3 class="section-heading text-bold">요약 / SUMMARY</h3>
+            <p id="modal-summary" class="modal-summary-text">책 설명이 여기에 들어갑니다.</p>
+          </div>
+
+          <div class="modal-quote-box red-bg">
+            <h3 class="section-heading text-bold quote-header">명대사 & 성찰 / QUOTE</h3>
+            <p id="modal-quote" class="modal-quote-text">"인간이 두려워하는 것은 오직 새로운 것이다."</p>
+          </div>
+
+          <div class="modal-action-area">
+            <!-- Target="_blank" to browse wiki directly -->
+            <a id="modal-wiki-btn" href="#" target="_blank" class="construct-btn wiki-btn text-bold">WIKIPEDIA / ЧИТАТЬ ДАЛЕЕ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

@@ -1,0 +1,770 @@
+/* ==========================================
+   SOVIET CONSTRUCTIVISM DESIGN SYSTEM
+   ========================================== */
+
+/* Reset & Base Variables */
+:root {
+  --color-bg: #f4efe2;         /* Antique Paper/Cream */
+  --color-bg-dark: #eae3d2;    /* Darker vintage paper */
+  --color-text: #1a1a1a;      /* Matte Black */
+  --color-red: #cc1b13;       /* Revolutionary Crimson Red */
+  --color-red-hover: #b01710;
+  --color-border: #1a1a1a;
+  
+  --font-geom: 'Outfit', 'Noto Sans KR', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-geom);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Background Constructivism Decor */
+.diagonal-stripe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 100px,
+    rgba(204, 27, 19, 0.04) 100px,
+    rgba(204, 27, 19, 0.04) 200px
+  );
+  z-index: -2;
+  pointer-events: none;
+}
+
+.constructivism-grid-lines {
+  position: absolute;
+  top: 0;
+  left: 20%;
+  width: 2px;
+  height: 100%;
+  background-color: rgba(26, 26, 26, 0.06);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.constructivism-grid-lines::after {
+  content: '';
+  position: absolute;
+  top: 35%;
+  left: -20vw;
+  width: 100vw;
+  height: 4px;
+  background-color: var(--color-red);
+  opacity: 0.15;
+  transform: rotate(-15deg);
+}
+
+/* Typography & Helpers */
+.text-bold {
+  font-weight: 900;
+}
+
+.italic-bold {
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.red-bg {
+  background-color: var(--color-red) !important;
+  color: var(--color-bg) !important;
+}
+
+.black-bg {
+  background-color: var(--color-text) !important;
+  color: var(--color-bg) !important;
+}
+
+/* Main Container Frame */
+.app-container {
+  width: 100%;
+  max-width: 950px;
+  min-height: 680px;
+  background-color: var(--color-bg);
+  border: 6px solid var(--color-border);
+  box-shadow: 15px 15px 0px var(--color-text);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 30px;
+  overflow: hidden;
+}
+
+/* Header */
+.app-header {
+  border-bottom: 4px solid var(--color-border);
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-red {
+  background-color: var(--color-red);
+  color: var(--color-bg);
+  font-size: 2rem;
+  font-weight: 900;
+  padding: 2px 12px;
+  transform: skewX(-10deg);
+  display: inline-block;
+  letter-spacing: 2px;
+}
+
+.logo-text {
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.header-sub {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--color-red);
+  text-transform: uppercase;
+}
+
+/* Main Screen Layout */
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Step Container Animations */
+.step-container {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+.step-container.active {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* STEP 0: INTRO STYLE */
+#step-intro {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.intro-visual {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.construct-box {
+  border: 5px solid var(--color-border);
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  padding: 25px 40px;
+  transform: rotate(-3deg);
+  display: inline-block;
+  box-shadow: 10px 10px 0px var(--color-red);
+}
+
+.giant-title {
+  font-size: 3rem;
+  line-height: 1.1;
+  letter-spacing: 2px;
+}
+
+.intro-description {
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.desc-kr {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  word-break: keep-all;
+}
+
+.desc-ru {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--color-red);
+  margin-bottom: 35px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Buttons System */
+.construct-btn {
+  background-color: var(--color-red);
+  color: var(--color-bg);
+  border: 4px solid var(--color-border);
+  padding: 14px 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.construct-btn::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 6px;
+  left: 6px;
+  border: 3px solid var(--color-border);
+  z-index: -1;
+  transition: all 0.2s ease;
+}
+
+.construct-btn:hover {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  transform: translate(-3px, -3px);
+}
+
+.construct-btn:hover::after {
+  transform: translate(6px, 6px);
+}
+
+.main-btn {
+  padding: 16px 45px;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+
+/* STEP HEADER & TITLE */
+.step-header {
+  position: relative;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.step-num-bg {
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--color-bg);
+  background-color: var(--color-text);
+  padding: 0 15px;
+  line-height: 1;
+  display: inline-block;
+  border: 4px solid var(--color-border);
+  box-shadow: 4px 4px 0px var(--color-red);
+}
+
+.step-title {
+  font-size: 1.4rem;
+  line-height: 1.4;
+  word-break: keep-all;
+}
+
+.ru-subtitle {
+  font-size: 0.95rem;
+  color: var(--color-red);
+  text-transform: uppercase;
+  font-weight: 900;
+  display: block;
+  margin-top: 3px;
+}
+
+/* OPTIONS GRID SELECTOR */
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.options-grid[data-step="4"] {
+  grid-template-columns: 1fr;
+}
+
+.option-btn {
+  background-color: var(--color-bg-dark);
+  border: 3px solid var(--color-border);
+  padding: 18px 20px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.option-btn .opt-kr {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.option-btn .opt-ru {
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: var(--color-red);
+  letter-spacing: 1px;
+}
+
+.option-btn:hover {
+  background-color: var(--color-text);
+  border-color: var(--color-text);
+}
+
+.option-btn:hover .opt-kr {
+  color: var(--color-bg);
+}
+
+.option-btn:hover .opt-ru {
+  color: var(--color-bg-dark);
+}
+
+.option-btn.selected {
+  background-color: var(--color-red);
+  border-color: var(--color-border);
+  box-shadow: 5px 5px 0px var(--color-text);
+}
+
+.option-btn.selected .opt-kr {
+  color: var(--color-bg);
+}
+
+.option-btn.selected .opt-ru {
+  color: var(--color-text);
+}
+
+/* BOTTOM NAVIGATION CONTROLS */
+.navigation-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  border-top: 4px solid var(--color-border);
+  padding-top: 20px;
+  gap: 15px;
+}
+
+.nav-control-btn {
+  border: 3px solid var(--color-border);
+  padding: 12px 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.prev-btn {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text);
+}
+
+.prev-btn:hover {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+}
+
+.next-btn {
+  background-color: var(--color-red);
+  color: var(--color-bg);
+}
+
+.next-btn:hover:not(:disabled) {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+}
+
+.next-btn:disabled, .next-btn.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  background-color: var(--color-bg-dark);
+  color: #888;
+}
+
+/* TRACKER */
+.progress-bar-container {
+  margin-top: 20px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+}
+
+.bar-outer {
+  width: 100%;
+  height: 12px;
+  border: 3px solid var(--color-border);
+  background-color: var(--color-bg-dark);
+}
+
+.bar-inner {
+  height: 100%;
+  width: 0%;
+  background-color: var(--color-red);
+  transition: width 0.3s ease-out;
+}
+
+/* APP FOOTER */
+.app-footer {
+  border-top: 2px solid rgba(26, 26, 26, 0.1);
+  margin-top: 25px;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #777;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================
+   RESULTS PAGE & BOOK CARDS
+   ========================================== */
+.result-header {
+  border-left: 8px solid var(--color-red);
+  padding-left: 15px;
+  margin-bottom: 25px;
+}
+
+.result-main-title {
+  font-size: 2rem;
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+.result-subtitle {
+  font-size: 0.95rem;
+  margin-top: 5px;
+  color: #555;
+  word-break: keep-all;
+}
+
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.constructivism-border {
+  border: 4px solid var(--color-border);
+  background-color: var(--color-bg-dark);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.book-card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 270px;
+  box-shadow: 6px 6px 0px var(--color-text);
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 10px 10px 0px var(--color-red);
+}
+
+.card-badge {
+  position: absolute;
+  top: -15px;
+  right: 15px;
+  background-color: var(--color-red);
+  color: var(--color-bg);
+  font-size: 1.5rem;
+  font-weight: 900;
+  padding: 0px 8px;
+  border: 3px solid var(--color-border);
+  transform: rotate(5deg);
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.book-title {
+  font-size: 1.25rem;
+  font-weight: 900;
+  margin-top: 5px;
+  margin-bottom: 2px;
+  line-height: 1.2;
+}
+
+.book-author {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.book-meta {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.meta-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border: 2px solid var(--color-border);
+}
+
+.book-brief {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  margin-bottom: 15px;
+  flex-grow: 1;
+  word-break: keep-all;
+}
+
+.detail-btn {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  border: 2px solid var(--color-border);
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.detail-btn:hover {
+  background-color: var(--color-red);
+  color: var(--color-bg);
+}
+
+.result-footer {
+  text-align: center;
+}
+
+.restart-btn {
+  background-color: var(--color-text);
+}
+
+/* ==========================================
+   MODAL DIALOG (DETAILS VIEW)
+   ========================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(26, 26, 26, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background-color: var(--color-bg);
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  box-shadow: 15px 15px 0px var(--color-red);
+  position: relative;
+  overflow-y: auto;
+  padding: 35px 25px 25px 25px;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.show .modal-content {
+  transform: scale(1);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2.2rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--color-text);
+  transition: color 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  color: var(--color-red);
+}
+
+.modal-body {
+  display: flex;
+  gap: 15px;
+}
+
+.modal-left-bar {
+  width: 8px;
+  background-color: var(--color-red);
+  flex-shrink: 0;
+}
+
+.modal-main-content {
+  flex-grow: 1;
+}
+
+.modal-title-area {
+  margin-bottom: 20px;
+}
+
+.modal-title-kr {
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+.modal-title-ru {
+  font-size: 1rem;
+  color: var(--color-red);
+  margin-top: 4px;
+}
+
+.modal-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  background-color: var(--color-bg-dark);
+  padding: 15px;
+  border: 3px solid var(--color-border);
+  margin-bottom: 20px;
+}
+
+.modal-meta-grid .full-width {
+  grid-column: span 2;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #777;
+  margin-bottom: 2px;
+}
+
+.meta-value {
+  font-size: 0.95rem;
+}
+
+.modal-divider {
+  height: 4px;
+  background-color: var(--color-border);
+  margin-bottom: 20px;
+}
+
+.modal-text-section {
+  margin-bottom: 20px;
+}
+
+.section-heading {
+  font-size: 0.85rem;
+  color: var(--color-text);
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.modal-summary-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333;
+  word-break: keep-all;
+}
+
+.modal-quote-box {
+  padding: 15px;
+  border: 3px solid var(--color-border);
+  margin-bottom: 25px;
+  transform: rotate(-1deg);
+  box-shadow: 4px 4px 0px var(--color-text);
+}
+
+.quote-header {
+  color: var(--color-bg) !important;
+  font-weight: 900;
+}
+
+.modal-quote-text {
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-bg);
+  word-break: keep-all;
+}
+
+.modal-action-area {
+  text-align: right;
+}
+
+.wiki-btn {
+  font-size: 0.9rem;
+  padding: 10px 20px;
+}
+
+/* Adjustments for responsive or small heights */
+@media (max-height: 700px) {
+  .app-container {
+    min-height: auto;
+  }
+  .options-grid {
+    gap: 8px;
+  }
+  .option-btn {
+    padding: 12px 15px;
+  }
+}
